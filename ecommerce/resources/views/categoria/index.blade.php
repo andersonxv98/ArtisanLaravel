@@ -6,6 +6,9 @@
         @foreach($categorias as $c)
             <div>
                 {{$c->descricao}}
+                <form action="" method="">
+                    
+                </form>
             </div>
         @endforeach
 

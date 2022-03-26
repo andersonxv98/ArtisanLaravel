@@ -97,6 +97,12 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+       try {
+           Categoria::destroy($id);
+           return redirect()
+           ->action([CategoriaController::class, 'index']);
+       } catch (\Exception $th){
+           echo $th;
+       }
     }
 }
