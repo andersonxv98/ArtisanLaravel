@@ -2,7 +2,9 @@
     <x-slot name="header">
         Todas as Categorias
     </x-slot>
-
+        <a href="{{route('categoria.create')}}">
+            Criar registro
+        </a>
         @foreach($categorias as $c)
             <div>
                 {{$c->descricao}}
