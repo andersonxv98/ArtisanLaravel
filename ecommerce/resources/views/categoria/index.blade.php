@@ -6,6 +6,9 @@
         @foreach($categorias as $c)
             <div>
                 {{$c->descricao}}
+                <a href="{{route('categoria.edit', $c->id)}}"> 
+                    alterar
+                </a>
                 <form action="{{route('categoria.destroy', $c->id)}}" method="POST">
                     @csrf 
                     @method("Delete")
