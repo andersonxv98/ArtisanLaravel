@@ -8,6 +8,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                 <form action="{{route('categoria.update', $categoria -> id)}}" method="post">
         @csrf
+        @method("Patch")
         <div>
             <x-label>Informe a descricao:</x-label>
             <x-input name="descricao" value="{{$categoria-> descricao}}"

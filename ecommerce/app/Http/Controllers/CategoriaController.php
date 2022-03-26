@@ -77,7 +77,7 @@ class CategoriaController extends Controller
         
             $categoria = Categoria::findOrFail($id);
             return view("categoria.edit", compact("categoria"));
-       
+           
     }
 
     /**
@@ -88,10 +88,18 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        
-    }
+    {   
+        try{
+        $categoria = new Categoria();
+        $dados = $request->only($categoria->getFillable());
+        Categoria::whereId($id)->update($dados);
+        return redirect()
+        ->action([CategoriaController::class, 'index']);
+        }catch(\Exception $e){
+            echo "erro: ".$e;
 
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
