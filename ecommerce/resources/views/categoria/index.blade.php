@@ -6,8 +6,10 @@
         @foreach($categorias as $c)
             <div>
                 {{$c->descricao}}
-                <form action="" method="">
-                    
+                <form action="{{route('categoria.destroy', $c->id)}}" method="POST">
+                    @csrf 
+                    @method("Delete")
+                    <x-button> Excluir</x-button>
                 </form>
             </div>
         @endforeach
