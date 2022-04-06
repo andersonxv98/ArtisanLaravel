@@ -3,18 +3,21 @@
         Todas as Categorias
     </x-slot>
         <a href="{{route('categoria.create')}}">
-            Criar registro
+           <x-button class="mt-2 mb-2 ml-2"> Criar registro </x-button>
         </a>
+
         @foreach($categorias as $c)
-            <div>
-                {{$c->descricao}}
-                <a href="{{route('categoria.edit', $c->id)}}"> 
-                    alterar
+            <div class="col mt-6 ml-3 lg-6">
+                <div class="row">
+                    {{$c->descricao}}
+                </div>
+                <a href="{{route('categoria.edit', $c->id)}}">
+                   <x-button class="mt-1"> alterar </x-button>
                 </a>
                 <form action="{{route('categoria.destroy', $c->id)}}" method="POST">
-                    @csrf 
+                    @csrf
                     @method("Delete")
-                    <x-button> Excluir</x-button>
+                    <x-button class="mt-1"> Excluir</x-button>
                 </form>
             </div>
         @endforeach

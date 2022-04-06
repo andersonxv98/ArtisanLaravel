@@ -1,7 +1,7 @@
 <?php
     //Composer Update
    //php artisan keygenerate
-    //php artisan migrate
+    //php artisan migrate 
     //php artisan serve
         //lembrte o wamp deve estar em execução
 
