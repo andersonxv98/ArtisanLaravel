@@ -19,7 +19,7 @@ na migração faze:
     table->on("categoria")
     
 
-após isso fazer na 
+após isso fazer na self\this(class<model>)
         return $this->belongsto(class::categoria)
         php artisan make:model Produto --migrate
     }*/
