@@ -11,6 +11,15 @@ class fornecedor extends Model
     protected $fillable = ['descricao', 'produto', 'preco', 'cnpj', 'cidade'];
 
    /* public function categoria(){
+
+na migração faze: 
+    table->unsunbmentvari("categoria_id")
+    table->foregin("categoria_id")
+    table->references("id")
+    table->on("categoria")
+    
+
+após isso fazer na 
         return $this->belongsto(class::categoria)
         php artisan make:model Produto --migrate
     }*/
