@@ -25,6 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define("acesso-administrador", function (User $user){
+            return $user->role === "administrador" ? Response::allow() : Response::deny("voxce n tem acesso");
+        });
+
+        
         //
     }
 }
