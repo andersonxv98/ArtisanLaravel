@@ -12,5 +12,6 @@ class fornecedor extends Model
 
    /* public function categoria(){
         return $this->belongsto(class::categoria)
+        php artisan make:model Produto --migrate
     }*/
 }
