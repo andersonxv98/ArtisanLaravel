@@ -10,6 +10,11 @@
         @csrf
         @method("Patch")
         <div>
+            <x-label>Informe o Id:</x-label>
+            <x-input name="descricao" value="{{$categoria-> id }}"
+                     class="block mt-1 w-full"/>
+        </div>
+        <div>
             <x-label>Informe a descricao:</x-label>
             <x-input name="descricao" value="{{$categoria-> descricao}}"
                      class="block mt-1 w-full"/>
@@ -23,9 +28,9 @@
             </div>
         </div>
     </div>
-   
-    
- 
+
+
+
 
 </x-app-layout>
 

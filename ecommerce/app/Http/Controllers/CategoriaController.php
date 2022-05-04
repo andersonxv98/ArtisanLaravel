@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriaController extends Controller
 {
@@ -20,7 +21,6 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        
         $categorias = Categoria::all();
         return view('categoria.index',
             compact('categorias'));
@@ -35,6 +35,7 @@ class CategoriaController extends Controller
     {
         Gate::authorize("acesso-administrador");
         return view ('categoria.create');
+
     }
 
     /**
@@ -76,10 +77,10 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        
+
             $categoria = Categoria::findOrFail($id);
             return view("categoria.edit", compact("categoria"));
-           
+
     }
 
     /**
@@ -90,7 +91,7 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         try{
         $categoria = new Categoria();
         $dados = $request->only($categoria->getFillable());

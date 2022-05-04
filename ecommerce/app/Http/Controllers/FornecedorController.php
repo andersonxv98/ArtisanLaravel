@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\fornecedor;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,9 @@ class FornecedorController extends Controller
      */
     public function create()
     {
-        return view ('fornecedor.create');
+        $categorias = Categoria::all();
+        return view ('fornecedor.create').
+                    compact("categorias");
     }
 
     /**
@@ -52,7 +55,7 @@ class FornecedorController extends Controller
                 ->action([FornecedorController::class,
                         'index']);
         } catch (\Exception $e){
-            echo "Erro ao inserir!";
+            echo "Erro ao inserir!:  ". $e;
         }
     }
 
@@ -75,9 +78,9 @@ class FornecedorController extends Controller
      */
     public function edit($id)
     {
-
+            $categorias = Categoria::all();
             $fornecedor = fornecedor::findOrFail($id);
-            return view("fornecedor.edit", compact("fornecedor"));
+            return view("fornecedor.edit", compact("categorias","fornecedor"));
 
     }
 

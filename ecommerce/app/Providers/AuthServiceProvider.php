@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+//use Illuminate\Support\Facades\Storage;
+use Illuminate\Auth\Access\Response;
+//use Illuminate\Auth::user();
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,10 +31,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define("acesso-administrador", function (User $user){
-            return $user->role === "administrador" ? Response::allow() : Response::deny("voxce n tem acesso");
+            //echo "USER: ".$user->name;
+            //echo "</br>";
+            echo "User.Email: ".$user->email;
+            //echo "User: ".$user->role;
+            return $user->email === "adm@gmail.com" ? Response::allow() : Response::deny("voxce n tem acesso");
+
         });
 
-        
+
         //
     }
 }

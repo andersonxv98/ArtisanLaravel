@@ -9,7 +9,10 @@
         @foreach($categorias as $c)
             <div class="col mt-6 ml-3 lg-6">
                 <div class="row">
-                    {{$c->descricao}}
+                    Descrição : {{$c->descricao}}
+                </div>
+                <div class="row">
+                  Id Categoria:   {{$c->id}}
                 </div>
                 <a href="{{route('categoria.edit', $c->id)}}">
                    <x-button class="mt-1"> alterar </x-button>

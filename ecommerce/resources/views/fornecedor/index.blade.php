@@ -10,6 +10,10 @@
         <div class="container d-block">
             <div class="col mt-6 ml-3 lg-6">
                 <div class="row">
+
+                     CATEGORIA ID: {{$f->categoria_id}}
+                    </div>
+                <div class="row">
                 <label>descricao:</label>
                 {{$f->descricao}}
                 </div>

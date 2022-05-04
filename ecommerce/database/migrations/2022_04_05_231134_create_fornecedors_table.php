@@ -21,6 +21,8 @@ class CreateFornecedorsTable extends Migration
             $table->string('preco');
             $table->string('cnpj');
             $table->string('cidade');
+            $table->unsignedBigInteger("categoria_id");
+            $table->foreign("categoria_id") ->references("id")->on("categorias");
 
         });
     }

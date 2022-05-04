@@ -34,6 +34,11 @@
             <x-input name="cidade" value="{{$fornecedor-> cidade}}"
                      class="block mt-1 w-full"/>
         </div>
+        <div>
+            <x-label>Informe  o Id da Categoria:</x-label>
+            <x-input name="categoria_id" value="{{$fornecedor-> categoria_id}}"
+                     class="block mt-1 w-full"/>
+        </div>
         <div class="mt-5">
             <x-button>Alterar</x-button>
         </div>
