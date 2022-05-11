@@ -1,43 +1,36 @@
 <x-app-layout>
     <x-slot name="header">
-        Todas Os fornecedores
+        Produtos (index)
     </x-slot>
     <div class="container mt-3">
-        <a href="{{route('fornecedor.create')}}">
+        <a href="{{route('produto.create')}}">
             <x-button class="mt-2 mb-2 ml-2">  Criar registro  </x-button>
         </a>
-        @foreach($fornecedors as $f)
+        @foreach($produtos as $p)
         <div class="container d-block">
             <div class="col mt-6 ml-3 lg-6">
                 <div class="row">
 
-                     Fornecedor ID: {{$f->id}}
+                     Produto  ID: {{$p->id}}
                     </div>
                 <div class="row">
-                <label>descricao:</label>
-                {{$f->descricao}}
+                <label>Nome:</label>
+                {{$p->nome}}
                 </div>
                 <div class="row">
-                <label>Produto:</label>
-                {{$f->produto}}
+                <label>Descrição:</label>
+                {{$p->descricao}}
             </div>
                 <div class="row">
-                <label>Preco:</label>
-                {{$f->preco}}
+                <label>Id Fornecedor:</label>
+                {{$p->fornecedor_id}}
             </div>
-                <div class="row">
-                <label>CNPJ:</label>
-                {{$f->cnpj}}
-            </div>
-                <div class="row">
-                <label>Cidade:</label>
-                {{$f->cidade}}
-                </div>
+
                 <div class="mt-3">
-                <a href="{{route('fornecedor.edit', $f->id)}}">
+                <a href="{{route('produto.edit', $p->id)}}">
                     <x-button>   alterar </x-button>
                 </a>
-                <form action="{{route('fornecedor.destroy', $f->id)}}" method="POST">
+                <form action="{{route('produto.destroy', $p->id)}}" method="POST">
                     @csrf
                     @method("Delete")
                     <x-button class="mt-1"> Excluir</x-button>

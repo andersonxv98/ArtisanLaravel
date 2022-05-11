@@ -13,11 +13,7 @@
             <x-input name="descricao"
                      class="block mt-1 w-full"/>
         </div>
-        <div>
-            <x-label>Informe o produto:</x-label>
-            <x-input name="produto"
-                     class="block mt-1 w-full"/>
-        </div>
+
         <div>
             <x-label>Informe o preco do produto:</x-label>
             <x-input name="preco"
@@ -35,7 +31,7 @@
         </div>
         <div>
             <x-label>Informe o Id da Categoria:</x-label>
-            <x-input name="categoria_id"
+            <x-input name="categoria_id", type="number"
                      class="block mt-1 w-full"/>
         </div>
         <div class="mt-5">

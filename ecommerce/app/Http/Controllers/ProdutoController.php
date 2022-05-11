@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
+
+
+//use App\Models\Categoria;
 use App\Models\fornecedor;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
-class FornecedorController extends Controller
+class ProdutoController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -22,9 +24,9 @@ class FornecedorController extends Controller
     public function index()
     {
 
-        $fornecedors = fornecedor::all();
-        return view('fornecedor.index',
-            compact('fornecedors'));
+        $produtos = Produto::all();
+        return view('produto.index',
+            compact('produtos'));
     }
 
     /**
@@ -34,8 +36,9 @@ class FornecedorController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-        return view ('fornecedor.create');
+        $produtos = Produto::all();
+        return view ('produto.create',
+                    compact("produtos"));
     }
 
     /**
@@ -45,14 +48,15 @@ class FornecedorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   //dd($request->all());
+    {
         try{
-            $fornecedor = new fornecedor();
-            $dados = $request->only($fornecedor->getFillable());
+            //dd($request->all());
+            $produto = new Produto();
+            $dados = $request->only($produto->getFillable());
             //dd($dados);
-            fornecedor::create($dados);
+            Produto::create($dados);
             return redirect()
-                ->action([FornecedorController::class,
+                ->action([ProdutoController::class,
                         'index']);
         } catch (\Exception $e){
             echo "Erro ao inserir!:  ". $e;
@@ -78,9 +82,9 @@ class FornecedorController extends Controller
      */
     public function edit($id)
     {
-            $categorias = Categoria::all();
-            $fornecedor = fornecedor::findOrFail($id);
-            return view("fornecedor.edit", compact("categorias","fornecedor"));
+            $fornecedors = fornecedor::all();
+            $produto = Produto::findOrFail($id);
+            return view("produto.edit", compact("fornecedors","produtos"));
 
     }
 
@@ -94,11 +98,11 @@ class FornecedorController extends Controller
     public function update(Request $request, $id)
     {
         try{
-        $fornecedor = new fornecedor();
-        $dados = $request->only($fornecedor->getFillable());
-        fornecedor::whereId($id)->update($dados);
+        $produto = new Produto();
+        $dados = $request->only($produto->getFillable());
+        produto::whereId($id)->update($dados);
         return redirect()
-        ->action([FornecedorController::class, 'index']);
+        ->action([ProdutoController::class, 'index']);
         }catch(\Exception $e){
             echo "erro: ".$e;
 
@@ -113,9 +117,9 @@ class FornecedorController extends Controller
     public function destroy($id)
     {
        try {
-           fornecedor::destroy($id);
+           produto::destroy($id);
            return redirect()
-           ->action([FornecedorController::class, 'index']);
+           ->action([ProdutoController::class, 'index']);
        } catch (\Exception $th){
            echo $th;
        }
